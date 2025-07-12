@@ -19,3 +19,9 @@ export const fetchEvents = (year: number) =>
 
 export const fetchNextRace = (year: number) =>
   axios.get(`${BASE}/next-race`, { params: { year } });
+
+export const fetchStories = () =>
+  axios.get(`${BASE}/stories`);
+
+export const fetchDrivers = (limit?: number) =>
+  axios.get(`${BASE}/drivers`, { params: { limit } });
