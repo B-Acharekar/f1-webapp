@@ -32,12 +32,18 @@ export default function HeroSection() {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
 
-      setCountdown(`${days}d ${hours}h ${minutes}m`);
+      const format = (num: number) => String(num).padStart(2, "0");
+
+      setCountdown(
+        `${days}d ${format(hours)}h ${format(minutes)}m ${format(seconds)}s`
+      );
     }, 1000);
 
     return () => clearInterval(interval);
   }, [nextRace]);
+
 
   return (
     <section className="relative bg-gradient-to-b from-black via-neutral-900 to-black text-white py-20 px-6 md:px-12 overflow-hidden border-b border-red-600">
