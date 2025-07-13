@@ -25,3 +25,8 @@ export const fetchStories = () =>
 
 export const fetchDrivers = (limit?: number) =>
   axios.get(`${BASE}/drivers`, { params: { limit } });
+
+export const fetchDriverByAbbrv = async (abbrv: string) => {
+  const res = await axios.get(`${BASE}/drivers/${abbrv}`);
+  return res.data.driver;
+};
