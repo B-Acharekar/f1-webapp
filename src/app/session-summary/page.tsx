@@ -37,7 +37,7 @@ export default function SessionSummaryPage() {
           onChange={(e) => setYear(+e.target.value)}
           className="p-2 border rounded"
         >
-          {[2024, 2023, 2022].map((y) => (
+          {[2025,2024, 2023, 2022].map((y) => (
             <option key={y} value={y}>
               {y}
             </option>

@@ -30,3 +30,12 @@ export const fetchDriverByAbbrv = async (abbrv: string) => {
   const res = await axios.get(`${BASE}/drivers/${abbrv}`);
   return res.data.driver;
 };
+
+export const fetchPitStops = (year: number, gp: number) =>
+  axios.get(`${BASE}/race/pit-stops`, { params: { year, gp } });
+
+export const fetchTyreStints = (year: number, gp: number) =>
+  axios.get(`${BASE}/race/tyre-strategy`, { params: { year, gp } });
+
+export const fetchTelemetryData = (params: { year: number; gp: number; driver: string }) =>
+  axios.get(`${BASE}/race/telemetry`, { params });
